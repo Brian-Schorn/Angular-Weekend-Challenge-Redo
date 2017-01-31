@@ -1,0 +1,23 @@
+{
+  "name": "angularredo",
+  "version": "1.0.0",
+  "description": "To Redo Weekend Challenge #1 using AngularJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/relCORE/Angular-Weekend-Challenge-Redo.git"
+  },
+  "author": "Brian Schorn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/relCORE/Angular-Weekend-Challenge-Redo/issues"
+  },
+  "homepage": "https://github.com/relCORE/Angular-Weekend-Challenge-Redo#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}

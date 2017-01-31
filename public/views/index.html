@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Upsilon Angular Intro</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/vendors/normalize.css">
+    <link rel="stylesheet" href="/vendors/skeleton.css">
+  </head>
+  <body>
+    <main class="container" ng-app="introApp" ng-controller="IntroController as intro">
+      <header>
+        <h1>An intro to angular </h1>
+      </header>
+      {{ intro.fullName }}
+      <p ng-repeat="upsilonian in intro.upsilon">
+      {{ upsilonian }}
+      </p>
+
+
+      <form class="thing">
+        <label for="cohort">Cohort</label>
+        <input type="text" ng-model="intro.cohort.name" />
+        <button type="submit" ng-click="intro.addCohort(intro.cohort.name)">Submit!</button>
+      </form>
+
+      <p>
+        Adding Cohort: {{intro.cohort.name}}
+      </p>
+
+      <h2>All of our Cohorts!</h2>
+      <ul>
+        <li ng-repeat="cohort in intro.cohorts">
+          {{ cohort }}
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
