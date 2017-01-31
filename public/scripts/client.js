@@ -5,6 +5,7 @@
 
     //controller as syntax
     var intro = this;
+    intro.totalSum = 0;
 
     intro.employees = [];
 
@@ -18,11 +19,15 @@
       //Adds the new employee to the employee array
       intro.employees.push(angular.copy(employee));
       console.log("Employee Object from Form:",angular.copy(employee));
+      intro.totalSum += Number(employee.salary);
+      console.log(intro.totalSum);
+      intro.emp = null;
 
     };
 
     intro.deleteEmp = function(index){
       console.log(index);
+      intro.totalSum -= Number(intro.employees[index].salary);
       intro.employees.splice(index,1);
     }
   });
