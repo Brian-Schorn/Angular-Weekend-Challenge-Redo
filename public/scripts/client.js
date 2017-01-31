@@ -6,15 +6,23 @@
     //controller as syntax
     var intro = this;
 
-    intro.fullName = 'Brian Schorn';
-
-    intro.upsilon = ['Brian', 'Ahkillah', 'Jake', 'Rukia'];
-
-    intro.cohorts = [];
+    intro.employees = [];
 
     intro.addCohort = function(cohortname){
       intro.cohorts.push(cohortname);
       intro.cohort.name = '';
     };
 
+    intro.addEmp = function(employee){
+
+      //Adds the new employee to the employee array
+      intro.employees.push(angular.copy(employee));
+      console.log("Employee Object from Form:",angular.copy(employee));
+
+    };
+
+    intro.deleteEmp = function(index){
+      console.log(index);
+      intro.employees.splice(index,1);
+    }
   });

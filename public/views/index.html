@@ -2,39 +2,56 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Upsilon Angular Intro</title>
+    <title>Weekend Challenge 1 Angular REDO</title>
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/vendors/normalize.css">
     <link rel="stylesheet" href="/vendors/skeleton.css">
+    <link rel="stylesheet" href="/vendors/mystyles.css">
   </head>
-  <body>
-    <main class="container" ng-app="introApp" ng-controller="IntroController as intro">
-      <header>
-        <h1>An intro to angular </h1>
-      </header>
-      {{ intro.fullName }}
-      <p ng-repeat="upsilonian in intro.upsilon">
-      {{ upsilonian }}
-      </p>
+  <body ng-app="introApp">
+    <main class="container" ng-controller="IntroController as intro">
 
-
-      <form class="thing">
-        <label for="cohort">Cohort</label>
-        <input type="text" ng-model="intro.cohort.name" />
-        <button type="submit" ng-click="intro.addCohort(intro.cohort.name)">Submit!</button>
+      <form>
+        <label for="employeeFirstName">First Name</label>
+        <input type="text" ng-model="intro.emp.FirstName" name="employeeFirstName" placeholder="First Name"/>
+        <label for="employeeLastName">Last Name</label>
+        <input type="text" ng-model="intro.emp.LastName" name="employeeLastName" placeholder="Last Name"/>
+        <br />
+        <label for="employeeIdNumber">ID Number</label>
+        <input type="text" ng-model="intro.emp.ID" placeholder="ID Number"/>
+        <label for="employeeJobTitle">Job Title</label>
+        <input type="text" ng-model="intro.emp.jobTitle" placeholder="Job Title"/>
+        <br />
+        <label for="employeeSalary">Salary</label>
+        <input type="text" ng-model="intro.emp.salary" placeholder="Salary"/>
+        <input type="submit" ng-click="intro.addEmp(intro.emp)" value="Submit" />
       </form>
 
-      <p>
-        Adding Cohort: {{intro.cohort.name}}
-      </p>
+      <table id="empList">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID #</th>
+            <th>Job Title</th>
+            <th>Salary</th>
+            <th>Delete!</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="emp in intro.employees">
+            <td>{{emp.FirstName}}</td>
+            <td>{{emp.LastName}}</td>
+            <td>{{emp.ID}}</td>
+            <td>{{emp.jobTitle}}</td>
+            <td>{{emp.salary}}</td>
+            <td><button ng-click="intro.deleteEmp($index)">Delete Employee</button></td>
 
-      <h2>All of our Cohorts!</h2>
-      <ul>
-        <li ng-repeat="cohort in intro.cohorts">
-          {{ cohort }}
-        </li>
-      </ul>
+          </tr>
+        </tbody>
+      </table>
+
     </main>
   </body>
 </html>
